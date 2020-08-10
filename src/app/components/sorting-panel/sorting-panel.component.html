@@ -1,1 +1,10 @@
-<p>sorting-panel works!</p>
+<div class="sorting-panel" [class.hidden]="!isVisible">
+  <div class="sorting-panel-label">Sorting by:</div>
+  <div class="sorting-panel-item" [class.active]="item.name === sortBy" (click)="onSort(item.name)" *ngFor="let item of labels">
+    {{item.label}}
+  </div>
+  <div class="sorting-panel-item">
+    by word or sentence
+  </div>
+  <input class="sorting-panel-item-input" (input)="onChange($event)" type="text" />
+</div>

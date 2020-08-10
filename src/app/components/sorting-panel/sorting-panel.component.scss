@@ -1,0 +1,34 @@
+.sorting-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E5E5E5;
+  padding: 18px;
+  animation: 0.3s hide ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  z-index: -1;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &-label {
+    color: #929292;
+  }
+  &-item {
+    color: #2F80ED;
+    margin-left: 20px;
+    cursor: pointer;
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
+  &-item-input {
+    border: 0;
+    height: 13px;
+    margin-left: 10px;
+    padding: 3px 5px;
+  }
+}

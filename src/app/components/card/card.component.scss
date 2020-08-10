@@ -1,0 +1,88 @@
+:host {
+  position: relative;
+  height: 327px;
+  width: 22%;
+  min-width: 100px;
+  box-sizing: border-box;
+  background: #E5E5E5;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 20px;
+
+  &:not(:last-child) {
+    margin-right: 29px;
+  }
+
+  .card {
+    &-body {
+      width: 100%;
+
+      &-thumbnail {
+        height: 123px;
+        width: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      &-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+
+        &-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:not(:first-child) {
+            margin-left: 10px;
+          }
+        }
+      }
+
+      &-info__value {
+        margin-left: 5px;
+      }
+
+      &-title {
+        width: 100%;
+        font-size: 20px;
+        line-height: 23px;
+        color: #4F4F4F;
+        margin: 20px auto;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &-more {
+        width: 120px;
+        height: 32px;
+        background: #2F80ED;
+        border-radius: 5px;
+        margin: 30px auto;
+        font-size: 12px;
+        line-height: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+    &-footer {
+      width: 100%;
+      height: 5px;
+      border-radius: 0 5px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
