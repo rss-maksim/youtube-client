@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-menu-settings',
   templateUrl: './menu-settings.component.html',
   styleUrls: ['./menu-settings.component.scss']
 })
-export class MenuSettingsComponent implements OnInit {
+export class MenuSettingsComponent {
+  @Input() isAuthorized: boolean;
 
-  constructor() { }
+  constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {
+  logout(): void {
+    this.authService.logout();
   }
-
 }

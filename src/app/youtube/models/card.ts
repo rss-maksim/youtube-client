@@ -1,16 +1,21 @@
-export interface IResponse {
+export interface IResponse<T = string> {
   kind: string;
   etag: string;
   pageInfo: IPageInfo;
-  items: ICard[];
+  items: ICard<T>[];
 }
 
-export interface ICard {
+export interface ICard<T = string> {
   kind: string;
   etag: string;
   snippet: ISnippet;
   statistics: IStatistics;
-  id?: string;
+  id?: T;
+}
+
+export interface IId {
+  kind: string;
+  videoId: string;
 }
 
 interface ISnippet {

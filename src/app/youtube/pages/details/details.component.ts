@@ -15,7 +15,9 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(({ id }) => {
-      this.item = this.cardListService.getCard(id);
+      this.cardListService.getCard(id).subscribe((details: ICard<string>) => {
+        this.item = details;
+      });
     });
   }
 

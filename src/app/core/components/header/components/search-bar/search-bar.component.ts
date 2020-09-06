@@ -9,6 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class SearchBarComponent {
   @Output() search = new EventEmitter<string>();
   form: FormGroup = null;
+  inputValue = '';
 
   constructor() {
     this.form = new FormGroup({
@@ -16,8 +17,10 @@ export class SearchBarComponent {
     });
   }
 
-  public onSubmit() {
-    const { value } = this.form.get('search');
-    this.search.emit(value);
+  public onInput(value: string = ''): void {
+    if (this.inputValue.length <= 2 && value.length > 2 || this.inputValue.length >= 2) {
+      this.search.emit(value);
+    }
+    this.inputValue = value;
   }
 }
