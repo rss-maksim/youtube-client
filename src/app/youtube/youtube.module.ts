@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CardListComponent } from './components/card-list/card-list.component';
 import { CardComponent } from './components/card/card.component';
@@ -14,9 +15,11 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './pages/admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'details/:id', component: DetailsComponent }
 ];
 
@@ -32,13 +35,16 @@ const routes: Routes = [
     FilterPipe,
     NotFoundComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CardListComponent,

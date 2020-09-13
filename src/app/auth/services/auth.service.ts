@@ -8,7 +8,7 @@ export const AUTH_KEY = 'AUTH';
   providedIn: 'root'
 })
 export class AuthService {
-  authorized$ = new BehaviorSubject<boolean>(this.isAuthorized());
+  public authorized$ = new BehaviorSubject<boolean>(this.isAuthorized());
 
   constructor(private router: Router) { }
 
