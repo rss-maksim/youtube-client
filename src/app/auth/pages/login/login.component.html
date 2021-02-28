@@ -1,0 +1,15 @@
+<div class="login-form-name">Login</div>
+
+<form [formGroup]="form" (submit)="onSubmit($event)">
+  <div class="login-form-field">
+    <label>login</label>
+    <input type="text" formControlName="username" placeholder="Username" />
+  </div>
+
+  <div class="login-form-field">
+    <label>password</label>
+    <input type="password" formControlName="password" placeholder="Password" />
+  </div>
+
+  <button type="submit">Login</button>
+</form>

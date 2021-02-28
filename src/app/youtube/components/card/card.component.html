@@ -1,0 +1,32 @@
+<div class="card-body">
+  <div class="card-body-thumbnail">
+    <img [src]="card?.snippet?.thumbnails?.default?.url" />
+  </div>
+  <div class="card-body-info">
+    <div class="card-body-info-item">
+      <img class="card-body-info__icon" src="../../../assets/viewed.svg" />
+      <span class="card-body-info__value">{{card?.statistics?.viewCount}}</span>
+    </div>
+    <div class="card-body-info-item">
+      <img class="card-body-info__icon" src="../../../assets/liked.svg" />
+      <span class="card-body-info__value">{{card?.statistics?.likeCount}}</span>
+    </div>
+    <div class="card-body-info-item">
+      <img class="card-body-info__icon" src="../../../assets/dislike.svg" />
+      <span class="card-body-info__value">{{card?.statistics?.dislikeCount}}</span>
+    </div>
+    <div class="card-body-info-item">
+      <img class="card-body-info__icon" src="../../../assets/comments.svg" />
+      <span class="card-body-info__value">{{card?.statistics?.commentCount}}</span>
+    </div>
+  </div>
+    <div class="card-body-title">
+      {{card?.snippet?.title}}
+    </div>
+    <div class="card-body-more" (click)=goTo(card.id)>
+      more...
+    </div>
+  </div>
+  <div class="card-footer" appColor [date]="card?.snippet.publishedAt"></div>
+
+
