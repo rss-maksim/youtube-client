@@ -10,6 +10,7 @@ export interface ICard {
   etag: string;
   snippet: ISnippet;
   statistics: IStatistics;
+  id?: string;
 }
 
 interface ISnippet {
@@ -25,10 +26,11 @@ interface ISnippet {
   categoryId: string;
   liveBroadcastContent: string;
   localized: ILocalized;
+  defaultLanguage?: ILanguage;
   defaultAudioLanguage: ILanguage;
 }
 
-enum IType {
+export enum IType {
   'default'= 'default',
   'medium'= 'medium',
   'high'= 'high',
@@ -36,8 +38,9 @@ enum IType {
   'maxres'= 'maxres',
 }
 
-enum ILanguage {
-  en = 'en-US'
+export enum ILanguage {
+  en = 'en-US',
+  ru = 'ru-RU'
 }
 
 interface IThumbnail {

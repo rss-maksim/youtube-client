@@ -1,0 +1,21 @@
+.header {
+
+  &-top-panel {
+    background: #E5E5E5;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    z-index: 1;
+
+    & *:not(:last-child) {
+      margin-left: 10px;
+    }
+  }
+
+  &-bottom-panel {
+
+  }
+}

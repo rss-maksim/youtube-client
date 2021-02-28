@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { CardListService } from '../card-list/card-list.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
+  isSortingPanelVisible = false;
 
-  constructor() { }
+  constructor(private cardListService: CardListService) { }
 
-  ngOnInit(): void {
+  onToggleFilterButton() {
+    this.isSortingPanelVisible = !this.isSortingPanelVisible;
   }
 
+  onSearch(event) {
+    this.cardListService.search$.next(event);
+  }
 }

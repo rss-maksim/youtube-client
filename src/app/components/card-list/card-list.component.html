@@ -1,1 +1,6 @@
-<p>card-list works!</p>
+<div class="card-list">
+  <app-card
+    *ngFor="let card of cards$ | async | filter:sort.search | sort:sort"
+    [card]="card"
+  ></app-card>
+</div>

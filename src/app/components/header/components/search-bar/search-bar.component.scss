@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+input {
+  background: #EFEFEF;
+  box-sizing: border-box;
+  border: 0;
+  color: #333333;
+  max-width: 396px;
+  width: 100%;
+  height: 24px;
+  padding: 5px;
+}
+
+button {
+  background: #2F80ED;
+  border-radius: 0px 4px 4px 0px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  width: 80px;
+  height: 24px;
+}
