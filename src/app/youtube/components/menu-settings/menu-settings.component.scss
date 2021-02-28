@@ -1,16 +1,35 @@
 .menu-wrapper {
   position: absolute;
   right: 7%;
+  top: 28px;
 
   display: flex;
   align-items: center;
 
+  .admin-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .username {
     margin-right: 5px;
     user-select: none;
+    cursor: pointer;
   }
 
   svg {
     cursor: pointer;
+    margin-top: 3px;
+  }
+
+  .logout-btn {
+    background-color: #3080ec;
+    border: 0;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    height: 25px;
+    padding: 3px 5px;
   }
 }

@@ -6,8 +6,8 @@ export interface IResponse<T = string> {
 }
 
 export interface ICard<T = string> {
-  kind: string;
-  etag: string;
+  kind?: string;
+  etag?: string;
   snippet: ISnippet;
   statistics: IStatistics;
   id?: T;
@@ -20,19 +20,19 @@ export interface IId {
 
 interface ISnippet {
   publishedAt: string;
-  channelId: string;
+  channelId?: string;
   title: string;
   description: string;
   thumbnails: {
     [name: string]: IThumbnail
   };
-  channelTitle: string;
-  tags: string[];
-  categoryId: string;
-  liveBroadcastContent: string;
-  localized: ILocalized;
+  channelTitle?: string;
+  tags?: string[];
+  categoryId?: string;
+  liveBroadcastContent?: string;
+  localized?: ILocalized;
   defaultLanguage?: ILanguage;
-  defaultAudioLanguage: ILanguage;
+  defaultAudioLanguage?: ILanguage;
 }
 
 export enum IType {

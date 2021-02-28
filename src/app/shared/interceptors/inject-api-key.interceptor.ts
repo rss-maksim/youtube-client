@@ -15,7 +15,6 @@ export class InjectApiKeyInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log('InjectApiKeyInterceptor', request);
     const authReq = request.clone({
       setParams: {
         key: API_KEY

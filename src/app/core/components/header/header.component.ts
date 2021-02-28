@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CardListService } from '../../../youtube/services/card-list.service';
 import { AuthService } from '../../../auth/services/auth.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +11,7 @@ export class HeaderComponent implements OnInit {
   isSortingPanelVisible = false;
   isAuthorized = false;
 
-  constructor(private cardListService: CardListService, private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.authorized$.subscribe((isAuthorized: boolean) => {
@@ -23,9 +21,5 @@ export class HeaderComponent implements OnInit {
 
   onToggleFilterButton() {
     this.isSortingPanelVisible = !this.isSortingPanelVisible;
-  }
-
-  onSearch(event) {
-    this.cardListService.search$.next(event);
   }
 }

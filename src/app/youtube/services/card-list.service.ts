@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import { BehaviorSubject, Subject, Observable, interval, of } from 'rxjs';
-import { map, debounce, switchMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Subject, Observable, of } from 'rxjs';
+import { map, switchMap, catchError } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
 
 import { ICard, IResponse, IId } from '../models/card';
 import { defaultSort } from '../components/sorting-panel/constants';
-import { API_SEARCH_URL, API_KEY, API_VIDEO_URL } from '../../shared/constants';
+import { API_SEARCH_URL, API_VIDEO_URL } from '../../shared/constants';
+import { AppState } from '../../redux/state.models';
 
 @Injectable({
   providedIn: 'root'
@@ -16,21 +18,13 @@ export class CardListService {
   items: ICard<string>[] = [];
   sort$ = new BehaviorSubject(defaultSort);
 
-  constructor(private http: HttpClient) {
-    this.search$
-      .pipe(debounce(() => interval(500)))
-      .subscribe((value: string) => {
-        this.searchVideoByQuery(value)
-          .subscribe((videoIds: string[]) => this.getStatistics(videoIds)
-            .subscribe(({ items }: IResponse<string>) => {
-              this.items = items;
-              this.items$.next(items);
-            }));
-      });
-  }
+  constructor(private http: HttpClient, private store: Store<AppState>) {}
 
   getCard(id: string): Observable<ICard<string>> {
-    return this.getStatistics(id).pipe(switchMap((data: IResponse<string>) => of(data.items[0])));
+    return this.getStatistics(id)
+      .pipe(
+        switchMap((data: IResponse<string>) => of(data.items[0]))
+      );
   }
 
   searchVideoByQuery(qeury: string): Observable<string[]> {

@@ -1,0 +1,25 @@
+<div class="create-card-form-name">Create new card</div>
+
+<form [formGroup]="form" (submit)="onSubmit($event)">
+  <div class="create-card-form-field">
+    <label>Title</label>
+    <input type="text" formControlName="title" placeholder="Title" />
+  </div>
+
+  <div class="create-card-form-field">
+    <label>Discription</label>
+    <input type="text" formControlName="discription" placeholder="Discription" />
+  </div>
+
+  <div class="create-card-form-field">
+    <label>Image</label>
+    <input type="text" formControlName="imageUrl" placeholder="Image" />
+  </div>
+
+  <div class="create-card-form-field">
+    <label>Link video</label>
+    <input type="text" formControlName="videoUrl" placeholder="Video Link" />
+  </div>
+
+  <button type="submit">Create card</button>
+</form>

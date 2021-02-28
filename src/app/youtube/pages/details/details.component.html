@@ -1,4 +1,4 @@
-<div class="card-details">
+<div class="card-details" *ngIf="item; else notFoundBlock">
   <div class="card-details-img">
     <img [src]="item?.snippet?.thumbnails?.default?.url" />
 
@@ -39,3 +39,10 @@
     <div class="card-details-footer" appColor [date]="item?.snippet.publishedAt"></div>
   </div>
 </div>
+
+<ng-template #notFoundBlock>
+  <div class="card-details-back-not-found" (click)="back()">
+    <img src="../../../../assets/back.svg" />
+  </div>
+  <div class="card-details-not-found">Not Found</div>
+</ng-template>
